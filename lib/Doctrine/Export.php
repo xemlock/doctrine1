@@ -470,7 +470,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
     public function createIndexSql($table, $name, array $definition)
     {
         $table  = $this->conn->quoteIdentifier($table);
-        $name   = $this->conn->quoteIdentifier($name);
+        $name   = $this->conn->quoteIdentifier($this->conn->formatter->getIndexName($name));
         $type   = '';
         
         if (isset($definition['type'])) {
